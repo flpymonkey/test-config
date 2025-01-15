@@ -23,3 +23,9 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Run locally
+
+1. docker build -t nextjs-app .
+2. docker run -p 3000:3000 nextjs-app
+3. Navigate to `http://localhost:3000/`
