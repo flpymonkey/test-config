@@ -27,5 +27,8 @@
         }
       ]
     }
-  ]
+  ],
+  "ETRNL_KEY": {
+    "fromParameterStore": "ETRNL_KEY"
+  }
 }
