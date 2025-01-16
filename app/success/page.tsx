@@ -23,6 +23,9 @@ const VideoPlayer: React.FC = () => {
 };
 
 const SuccessPage: React.FC = () => {
+
+  console.log("Test success!");
+
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <h1>Success!</h1>
