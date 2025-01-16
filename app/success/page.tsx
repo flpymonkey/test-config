@@ -29,6 +29,15 @@ const SuccessPage: React.FC = () => {
       <p>You have successfully passed ETRNL Authentication.</p>
 
       <VideoPlayer />
+
+      <MuxPlayer
+      playbackId="a4nOgmxGWg6gULfcBbAa00gXyfcwPnAFldF8RdsNyk8M"
+      metadata={{
+        video_id: "video-id-54321",
+        video_title: "Test video title",
+        viewer_user_id: "user-id-007",
+      }}
+    />
     </div>
   );
 };
