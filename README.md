@@ -40,3 +40,7 @@ I also manually added parameters in AWS for API secrets:
 - MUX_SIGNING_KEY_ID
 - MUX_SIGNING_KEY_SECRET
 - PLAYBACK_RESTRICTION_ID
+
+If you update dependencies, youll need to update the pnpm-lockfile.
+- Delete the old lockfile
+- Run `pnpm install` to install the updated dependencies.

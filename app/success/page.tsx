@@ -1,12 +1,12 @@
-import React from 'react';
+"use client";
+
+import React, {useEffect, useState} from 'react';
 import MuxPlayer from "@mux/mux-player-react"; 
 
 // components/VideoPlayer.tsx
-import React, { useEffect, useState } from 'react';
-import MuxPlayer from '@mux/mux-player-react';
 import Cookies from 'js-cookie';
 
-const VideoPlayer = () => {
+const VideoPlayer: React.FC = () => {
 
   // Read the JWT token and playbackId from the cookie
   const [token, setToken] = useState<string | null>(null);
