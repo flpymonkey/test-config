@@ -28,6 +28,12 @@
             "ETRNL_KEY": {
               "fromParameterStore": "fc.test-config.env.production.e3i1u7x.ETRNL_KEY" 
             },
+            "MUX_TOKEN_ID": {
+              "fromParameterStore": "fc.test-config.env.production.o8r1uru.MUX_TOKEN_ID" 
+            },
+            "MUX_TOKEN_SECRET": {
+              "fromParameterStore": "fc.test-config.env.production.o9s1u0l.MUX_TOKEN_SECRET" 
+            },
             "MUX_SIGNING_KEY_ID": {
               "fromParameterStore": "fc.test-config.service.nextjs.8jt1slc.MUX_SIGNING_KEY_ID" 
             },

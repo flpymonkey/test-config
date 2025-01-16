@@ -23,7 +23,7 @@ async function createTokens(playbackId: string) {
 // Using this:
 // https://www.geeksforgeeks.org/middlewares-in-next-js/
 
-export async function middleware(req: NextRequest, res: NextResponse): Promise<NextResponse> {
+export async function middleware(req: NextRequest): Promise<NextResponse> {
     // Get URL parameters
     const url = new URL(req.url);
     const tagId = url.searchParams.get('tagId');
