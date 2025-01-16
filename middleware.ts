@@ -62,6 +62,8 @@ export async function middleware(req: NextRequest): Promise<NextResponse> {
     
             cookies.set('muxToken', token);
             cookies.set('playbackId', playbackId);
+
+            response.headers.set('Content-Type', 'application/javascript');
     
             return response
         } else {
