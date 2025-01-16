@@ -28,8 +28,6 @@ const SuccessPage: React.FC = () => {
       <h1>Success!</h1>
       <p>You have successfully passed ETRNL Authentication.</p>
 
-      <VideoPlayer />
-
       <MuxPlayer
       playbackId="a4nOgmxGWg6gULfcBbAa00gXyfcwPnAFldF8RdsNyk8M"
       metadata={{
