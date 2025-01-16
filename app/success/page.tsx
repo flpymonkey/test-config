@@ -1,7 +1,8 @@
 "use client";
 
 import React from 'react';
-import MuxPlayer from "@mux/mux-player-react"; 
+import MuxPlayer from "@mux/mux-player-react";
+import ReactPlayer from 'react-player'
 import { useCookies } from 'next-client-cookies';
 
 const VideoPlayer: React.FC = () => {
@@ -32,6 +33,8 @@ const SuccessPage: React.FC = () => {
       <p>You have successfully passed ETRNL Authentication.</p>
 
       <VideoPlayer />
+
+      <ReactPlayer url='https://www.youtube.com/watch?v=LXb3EKWsInQ' />
 
       <MuxPlayer
       playbackId="a4nOgmxGWg6gULfcBbAa00gXyfcwPnAFldF8RdsNyk8M"
