@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server';
-import './envConfig.ts'
 
 // Using this:
 // https://www.geeksforgeeks.org/middlewares-in-next-js/

@@ -23,12 +23,14 @@
           "minInstances": 1,
           "maxInstances": 1,
           "buildCommand": "npm run build",
-          "startCommand": "npm run start"
+          "startCommand": "npm run start",
+          "envVariables": {
+            "ETRNL_KEY": {
+              "fromParameterStore": "ETRNL_KEY"
+            } 
+          }
         }
       ]
     }
-  ],
-  "ETRNL_KEY": {
-    "fromParameterStore": "ETRNL_KEY"
-  }
+  ]
 }
