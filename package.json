@@ -13,7 +13,8 @@
     "js-cookie": "latest",
     "@mux/mux-node": "latest",
     "cookie": "latest",
-    "next-client-cookies": "latest" 
+    "next-client-cookies": "latest",
+    "react-player": "latest"
   },
   "devDependencies": {
     "typescript": "^5",
