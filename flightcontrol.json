@@ -26,7 +26,7 @@
           "startCommand": "npm run start",
           "envVariables": {
             "ETRNL_KEY": {
-              "fromParameterStore": "ETRNL_KEY"
+              "fromParameterStore": "fc.test-config.env.production.e3i1u7x.ETRNL_KEY" 
             } 
           }
         }

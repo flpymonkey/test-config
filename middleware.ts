@@ -19,7 +19,8 @@ export async function middleware(req: NextRequest): Promise<NextResponse> {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'API-KEY': process.env.ETRNL_KEY!
+                    // For this I added the secret directly in AWS Paramter Store, then use it in flightcontrol.json
+                    'API-KEY': process.env.ETRNL_KEY! 
                 },
                 body: JSON.stringify({ tagId, eCode, enc, cmac })
             }
