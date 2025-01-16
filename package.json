@@ -10,7 +10,9 @@
     "react-dom": "19.0.0-rc-69d4b800-20241021",
     "next": "15.0.1",
     "@mux/mux-player-react": "latest",
-    "js-cookie": "latest"
+    "js-cookie": "latest",
+    "@mux/mux-node": "latest",
+    "cookie": "latest"
   },
   "devDependencies": {
     "typescript": "^5",
