@@ -1,25 +1,15 @@
 "use client";
 
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import MuxPlayer from "@mux/mux-player-react"; 
-
-// components/VideoPlayer.tsx
-import Cookies from 'js-cookie';
+import { useCookies } from 'next-client-cookies';
 
 const VideoPlayer: React.FC = () => {
+  const cookies = useCookies();
+  const muxToken = cookies.get('muxToken');
+  const playbackId = cookies.get('playbackId');
 
-  // Read the JWT token and playbackId from the cookie
-  const [token, setToken] = useState<string | null>(null);
-  const [playbackId, setPlaybackId] = useState<string | null>(null);
-
-  useEffect(() => {
-    const muxToken = Cookies.get('muxToken');
-    setToken(muxToken || null);
-    const playbackId = Cookies.get('playbackId');
-    setPlaybackId(playbackId || null);
-  }, []);
-
-  if (!playbackId || !token) { 
+  if (!playbackId || !muxToken) { 
     return <div>Video Access Denied...</div>; 
   }
 
@@ -27,7 +17,7 @@ const VideoPlayer: React.FC = () => {
     <MuxPlayer
       streamType="on-demand"
       playbackId={playbackId}
-      tokens={{playback: token}}
+      tokens={{ playback: muxToken }}
     />
   );
 };
@@ -41,6 +31,6 @@ const SuccessPage: React.FC = () => {
       <VideoPlayer />
     </div>
   );
-}
+};
 
 export default SuccessPage;

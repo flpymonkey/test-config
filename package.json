@@ -12,7 +12,8 @@
     "@mux/mux-player-react": "latest",
     "js-cookie": "latest",
     "@mux/mux-node": "latest",
-    "cookie": "latest"
+    "cookie": "latest",
+    "next-client-cookies": "latest" 
   },
   "devDependencies": {
     "typescript": "^5",

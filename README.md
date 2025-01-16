@@ -26,8 +26,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Run locally
 
+Be sure to have set all the appropriate API environment variables in a local `.env` file.
+
 1. docker build -t nextjs-app .
-2. docker run -p 3000:3000 nextjs-app
+2. docker run --env-file .env -p 3000:3000 test_nodejs
 3. Navigate to `http://localhost:3000/`
 
 # Notes
@@ -37,9 +39,10 @@ I added this ot package.json
 
 I also manually added parameters in AWS for API secrets:
 - ETRNL_KEY
+- MUX_TOKEN_ID
+- MUX_TOKEN_SECRET
 - MUX_SIGNING_KEY_ID
 - MUX_SIGNING_KEY_SECRET
-- PLAYBACK_RESTRICTION_ID
 
 If you update dependencies, youll need to update the pnpm-lockfile.
 - Delete the old lockfile

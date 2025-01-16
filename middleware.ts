@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Mux from '@mux/mux-node';
-import { serialize } from 'cookie';
+
+import { getCookies } from 'next-client-cookies/server';
 
 // Following this guide for signing JWTs:
 // https://www.mux.com/docs/guides/signing-jwts
@@ -17,6 +18,8 @@ async function createTokens(playbackId: string) {
   const videoToken = await mux.jwt.signPlaybackId(playbackId, { ...baseOptions, type: 'video' });
   console.log('video token', videoToken);
 
+  console.log('playback id', playbackId)
+
   return videoToken;
 }
 
@@ -31,6 +34,8 @@ export async function middleware(req: NextRequest): Promise<NextResponse> {
     const enc = url.searchParams.get('e');
     const cmac = url.searchParams.get('c');
     const playbackId = url.searchParams.get('playbackId');
+
+    const cookies = await getCookies();
 
     if (tagId && eCode && enc && cmac && playbackId) {
         // Perform the API call
@@ -54,24 +59,11 @@ export async function middleware(req: NextRequest): Promise<NextResponse> {
             const token = await createTokens(playbackId);
         
             const response = NextResponse.redirect(new URL('/success', req.url));
-
-            response.headers.set('Set-Cookie', serialize('muxToken', token, {
-                httpOnly: true,
-                secure: process.env.NODE_ENV === 'production',
-                maxAge: 60 * 60 * 24, // 1 day
-                sameSite: 'strict',
-                path: '/',
-            }));
-
-            response.headers.set('Set-Cookie', serialize('playbackId', playbackId, {
-                httpOnly: true,
-                secure: process.env.NODE_ENV === 'production',
-                maxAge: 60 * 60 * 24, // 1 day
-                sameSite: 'strict',
-                path: '/',
-            }));
-
-            return response;
+    
+            cookies.set('muxToken', token);
+            cookies.set('playbackId', playbackId);
+    
+            return response
         } else {
             return new NextResponse(
                 `<h1>ETRNL API Call Failed</h1><p>Error: ${err}</p>`,
