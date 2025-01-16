@@ -29,3 +29,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 1. docker build -t nextjs-app .
 2. docker run -p 3000:3000 nextjs-app
 3. Navigate to `http://localhost:3000/`
+
+# Notes
+
+I am using the Mux player for streaming: https://www.mux.com/docs/guides/mux-player-web
+I added this ot package.json
+
+I also manually added parameters in AWS for API secrets:
+- ETRNL_KEY
+- MUX_SIGNING_KEY_ID
+- MUX_SIGNING_KEY_SECRET
+- PLAYBACK_RESTRICTION_ID
