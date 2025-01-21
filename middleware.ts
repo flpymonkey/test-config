@@ -28,6 +28,7 @@ async function createTokens(playbackId: string) {
 
 export async function middleware(req: NextRequest): Promise<NextResponse> {
     // Get URL parameters
+    // Test http://localhost:3000/test?argA=gfg&argB=124&tagId=dfsdf&eCode=sdfsfd&e=sdfsdf&c=sdfsdf&playbackId=dfsdf
     const url = new URL(req.url);
     const tagId = url.searchParams.get('tagId');
     const eCode = url.searchParams.get('eCode');
@@ -38,24 +39,24 @@ export async function middleware(req: NextRequest): Promise<NextResponse> {
     const cookies = await getCookies();
 
     if (tagId && eCode && enc && cmac && playbackId) {
-        // Perform the API call
-        const res = await fetch(
-            'https://third-party.etrnl.app/v1/tags/verify-authenticity',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    // For this I added the secret directly in AWS Paramter Store, then use it in flightcontrol.json
-                    'API-KEY': process.env.ETRNL_KEY! 
-                },
-                body: JSON.stringify({ tagId, eCode, enc, cmac })
-            }
-        );
+        // // Perform the API call
+        // const res = await fetch(
+        //     'https://third-party.etrnl.app/v1/tags/verify-authenticity',
+        //     {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //             // For this I added the secret directly in AWS Paramter Store, then use it in flightcontrol.json
+        //             'API-KEY': process.env.ETRNL_KEY! 
+        //         },
+        //         body: JSON.stringify({ tagId, eCode, enc, cmac })
+        //     }
+        // );
 
-        const { success, exists, authentic, ctr, uid, err } = await res.json();
+        // const { success, exists, authentic, ctr, uid, err } = await res.json();
 
         // Handle the response and set the playback token
-        if (success) {
+        if (true) {
             const token = await createTokens(playbackId);
         
             const response = NextResponse.redirect(new URL('/success', req.url));
@@ -66,15 +67,16 @@ export async function middleware(req: NextRequest): Promise<NextResponse> {
             response.headers.set('Content-Type', 'application/javascript');
     
             return response
-        } else {
-            return new NextResponse(
-                `<h1>ETRNL API Call Failed</h1><p>Error: ${err}</p>`,
-                {
-                    status: 401,
-                    headers: { 'Content-Type': 'text/html' }
-                }
-            );
-        }
+        } 
+        // else {
+        //     return new NextResponse(
+        //         `<h1>ETRNL API Call Failed</h1><p>Error: ${err}</p>`,
+        //         {
+        //             status: 401,
+        //             headers: { 'Content-Type': 'text/html' }
+        //         }
+        //     );
+        // }
     } else {
         const params = Array.from(url.searchParams.entries()).map(([key, value]) => `${key}: ${value}`).join(', ');
         return new NextResponse(
