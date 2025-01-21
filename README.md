@@ -28,7 +28,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 Be sure to have set all the appropriate API environment variables in a local `.env` file.
 
-1. docker build -t nextjs-app .
+1. docker build -t test_nodejs .
 2. docker run --env-file .env -p 3000:3000 test_nodejs
 3. Navigate to `http://localhost:3000/`
 
