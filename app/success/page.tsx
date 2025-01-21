@@ -29,8 +29,7 @@ const SuccessPage: React.FC = () => {
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>Success!</h1>
-      <p>You have successfully passed ETRNL Authentication.</p>
+      <h1>Welcome! If the NFC authentication worked, you should see a video below.</h1>
 
       <VideoPlayer />
     </div>
